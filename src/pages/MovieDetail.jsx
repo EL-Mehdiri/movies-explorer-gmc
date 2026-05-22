@@ -2,6 +2,7 @@ import { useParams, Link } from "wouter";
 import { ChevronLeft, Star, Lock } from "lucide-react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+const API = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
 export default function MovieDetail() {
   const params = useParams();
@@ -12,14 +13,13 @@ export default function MovieDetail() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState("");
 
-
 useEffect(() => {
   async function fetchMovie() {
     if (!id) return;
 
     try {
       const res = await axios.get(
-        `http://localhost:5001/api/movies/${id}`
+        `${API}/api/movies/${id}`
       );
 
       setMovie(res.data);

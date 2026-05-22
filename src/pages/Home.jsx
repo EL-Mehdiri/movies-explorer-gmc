@@ -5,6 +5,8 @@ import { AddMovie } from "../components/AddMovie";
 import { Film, Clapperboard } from "lucide-react";
 import axios from "axios";
 
+const API = import.meta.env.VITE_API_URL || "http://localhost:5001";
+
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [title, setTitle] = useState("");
@@ -16,7 +18,7 @@ useEffect(() => {
       const queryParam = title || "";
 
       const res = await axios.get(
-        `http://localhost:5001/api/movies/all${
+        `${API}/api/movies/all${
           queryParam ? `?query=${queryParam}` : ""
         }`
       );
