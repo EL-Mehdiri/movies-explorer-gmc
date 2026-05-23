@@ -5,7 +5,7 @@ import { AddMovie } from "../components/AddMovie";
 import { Film, Clapperboard } from "lucide-react";
 import axios from "axios";
 
-const API = import.meta.env.VITE_API_URL || "http://localhost:5001";
+const API =  "https://movies-explorer-gmc-backend-production.up.railway.app";
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
