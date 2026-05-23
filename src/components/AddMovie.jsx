@@ -30,6 +30,8 @@ import {
   SelectValue,
 } from "../components/ui/select";
 
+const API =  "https://movies-explorer-gmc-backend-production.up.railway.app";
+
 export function AddMovie({ onAddMovie = () => {} }) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -47,7 +49,7 @@ async function onSubmit(data) {
     setLoading(true);
 
     const res = await axios.post(
-      "http://localhost:5001/api/movies",
+      `${API}/api/movies`,
       {
         title: data.title,
         description: data.description,
